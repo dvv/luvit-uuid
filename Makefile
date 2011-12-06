@@ -1,10 +1,13 @@
-all: uuid
+all: module
 
-uuid: build/uuid.luvit
+module: build/uuid.luvit
 
 build/uuid.luvit: src/uuid.c
 	mkdir -p build
 	gcc -shared -o $@ $^
 
-.PHONY: all uuid
+clean:
+	rm -fr build
+
+.PHONY: all module clean
 .SILENT:
